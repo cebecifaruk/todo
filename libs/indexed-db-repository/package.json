@@ -1,0 +1,4 @@
+{
+  "name": "indexed-db-repository",
+  "main": "index.ts"
+}

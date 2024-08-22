@@ -1,0 +1,17 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "workspaces": [
+    "api",
+    "web",
+    "libs/*",
+    "services/*"
+  ],
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "repository": "*",
+    "todo-service": "*"
+  }
+}

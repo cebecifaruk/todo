@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "private": true,
+  "scripts": {
+    "start": "tsx main.ts",
+    "dev": "tsx --watch main.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.17.0"
+  }
+}

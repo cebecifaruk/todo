@@ -1,0 +1,10 @@
+{
+  "name": "todo-service",
+  "main": "index.ts",
+  "dependencies": {
+    "axios": "^1.7.4"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0"
+  }
+}
