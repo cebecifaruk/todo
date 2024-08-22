@@ -1,9 +1,9 @@
-import TodoService, { Todo } from ".";
+import TodoService, { Todo } from '.';
 
 class MockTodoService implements TodoService {
   todos: Todo[] = [
-    { id: "1", title: "Buy milk", completed: false },
-    { id: "2", title: "Buy eggs", completed: true },
+    { id: '1', title: 'Buy milk', completed: false },
+    { id: '2', title: 'Buy eggs', completed: true },
   ];
 
   async findAllTodos(): Promise<Todo[]> {
@@ -15,10 +15,7 @@ class MockTodoService implements TodoService {
   }
 
   async createTodo(title: string): Promise<void> {
-    const id =
-      this.todos.map((todo) => Number(todo.id)).sort((a, b) => a - b)[
-        this.todos.length - 1
-      ] + 1;
+    const id = this.todos.map((todo) => Number(todo.id)).sort((a, b) => a - b)[this.todos.length - 1] + 1;
     this.todos.push({
       id: id.toString(),
       title,

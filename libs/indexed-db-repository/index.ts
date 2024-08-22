@@ -1,4 +1,4 @@
-import Repository from "repository";
+import Repository from 'repository';
 
 class IndexedDBRepository<T> implements Repository<T> {
   constructor(
@@ -27,14 +27,14 @@ class IndexedDBRepository<T> implements Repository<T> {
 
       request.onupgradeneeded = () => {
         const db = request.result;
-        db.createObjectStore(this.storeName, { keyPath: "id" });
+        db.createObjectStore(this.storeName, { keyPath: 'id' });
       };
     });
   }
 
   private async getObjectStore() {
     const db = await this.openDatabase();
-    const transaction = db.transaction(this.storeName, "readwrite");
+    const transaction = db.transaction(this.storeName, 'readwrite');
     return transaction.objectStore(this.storeName);
   }
 
@@ -99,7 +99,7 @@ class IndexedDBRepository<T> implements Repository<T> {
   }
 
   update(data: Partial<T>): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 }
 

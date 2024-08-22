@@ -1,5 +1,5 @@
-import axios, { AxiosInstance } from "axios";
-import TodoService, { Todo } from ".";
+import axios, { AxiosInstance } from 'axios';
+import TodoService, { Todo } from '.';
 
 class TodoRestClient implements TodoService {
   api: AxiosInstance;
@@ -11,11 +11,11 @@ class TodoRestClient implements TodoService {
   }
 
   async createTodo(title: string): Promise<void> {
-    await this.api.post("/todos", { title });
+    await this.api.post('/todos', { title });
   }
 
   async findAllTodos(): Promise<Todo[]> {
-    const response = await this.api.get("/todos");
+    const response = await this.api.get('/todos');
     return response.data;
   }
 

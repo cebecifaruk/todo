@@ -1,6 +1,10 @@
 {
   "name": "todo",
   "version": "1.0.0",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
   "workspaces": [
     "api",
     "web",
@@ -9,9 +13,5 @@
   ],
   "devDependencies": {
     "prettier": "^3.3.3"
-  },
-  "dependencies": {
-    "repository": "*",
-    "todo-service": "*"
   }
 }

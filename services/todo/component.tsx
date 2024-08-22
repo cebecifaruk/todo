@@ -1,15 +1,6 @@
-import React from "react";
-import {
-  Button,
-  Card,
-  Drawer,
-  Table,
-  Form,
-  Input,
-  notification,
-  message,
-} from "antd";
-import TodoService, { Todo } from "todo-service";
+import React from 'react';
+import { Button, Card, Drawer, Table, Form, Input, notification, message } from 'antd';
+import TodoService, { Todo } from 'todo-service';
 
 const TodoComponent = (todoService: TodoService) => () => {
   const [todos, setTodos] = React.useState<Todo[] | null>(null);
@@ -24,9 +15,9 @@ const TodoComponent = (todoService: TodoService) => () => {
   const deleteTodo = React.useCallback(
     async (id: string) => {
       console.log(id);
-      message.loading({ content: "Deleting todo...", key: "delete-todo" });
+      message.loading({ content: 'Deleting todo...', key: 'delete-todo' });
       await todoService.deleteTodo(id);
-      message.success({ content: "Todo deleted", key: "delete-todo" });
+      message.success({ content: 'Todo deleted', key: 'delete-todo' });
       await loadTodos();
     },
     [todoService]
@@ -39,26 +30,19 @@ const TodoComponent = (todoService: TodoService) => () => {
   if (!todos) return <div>Loading...</div>;
 
   return (
-    <Card
-      extra={<Button icon="plus" onClick={() => setCreateTodoDrawer(true)} />}
-    >
-      <Drawer
-        title="Create Todo"
-        open={createTodoDrawer}
-        onClose={() => setCreateTodoDrawer(false)}
-      >
+    <Card extra={<Button icon="plus" onClick={() => setCreateTodoDrawer(true)} />}>
+      <Drawer title="Create Todo" open={createTodoDrawer} onClose={() => setCreateTodoDrawer(false)}>
         <Form
           onFinish={async (values) => {
             setCreateTodoDrawer(false);
             message.loading({
-              content: "Creating todo...",
-              key: "create-todo",
+              content: 'Creating todo...',
+              key: 'create-todo',
             });
             await todoService.createTodo(values.title);
-            message.success({ content: "Todo created", key: "create-todo" });
+            message.success({ content: 'Todo created', key: 'create-todo' });
             await loadTodos();
-          }}
-        >
+          }}>
           <Form.Item label="Title" name="title">
             <Input />
           </Form.Item>
@@ -73,11 +57,11 @@ const TodoComponent = (todoService: TodoService) => () => {
         dataSource={todos}
         rowKey="id"
         columns={[
-          { title: "ID", dataIndex: "id" },
-          { title: "Title", dataIndex: "title" },
-          { title: "Completed", dataIndex: "completed" },
+          { title: 'ID', dataIndex: 'id' },
+          { title: 'Title', dataIndex: 'title' },
+          { title: 'Completed', dataIndex: 'completed' },
           {
-            title: "Actions",
+            title: 'Actions',
             render: (row: any) => (
               <Button onClick={() => deleteTodo(row.id)} danger>
                 Delete

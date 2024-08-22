@@ -1,6 +1,6 @@
-import Controller from "controller";
-import express from "express";
-import cors from "cors";
+import Controller from 'controller';
+import express from 'express';
+import cors from 'cors';
 
 class RestServer {
   constructor(private readonly controllers: Controller[]) {}
@@ -14,7 +14,7 @@ class RestServer {
       app.use(controller.getRouter());
     });
 
-    app.listen(3000, () => console.log("Server is running on port 3000"));
+    app.listen(3000, () => console.log('Server is running on port 3000'));
   }
 }
 

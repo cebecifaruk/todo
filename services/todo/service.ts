@@ -1,5 +1,5 @@
-import Repository from "repository";
-import TodoService, { Todo } from ".";
+import Repository from 'repository';
+import TodoService, { Todo } from '.';
 
 export class TodoServiceImpl implements TodoService {
   constructor(private readonly repository: Repository<Todo>) {}
